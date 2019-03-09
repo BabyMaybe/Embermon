@@ -1,0 +1,27 @@
+<h1>Show us your moves!</h1>
+
+<table>
+
+<thead>
+  <tr>
+    <th>Move</th>
+    <th>ID</th>
+  </tr>
+</thead>
+
+<tbody>
+
+{{#each model as |move|}}
+  <tr>
+    <td>
+      <div>{{move.name}} </div>
+    </td>
+    <td>
+      <div> {{move.id}}</div>
+    </td>
+  </tr>
+{{/each}}
+</tbody>
+
+
+</table>

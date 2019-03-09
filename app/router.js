@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('moves', function() {
+    this.route('detail');
+    this.route('detail', {path: '/:move_id'});
+  });
 });
 
 export default Router;
