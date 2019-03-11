@@ -1,57 +1,58 @@
 import DS from 'ember-data';
 
-export default DS.RESTSerializer.extend({
+export default DS.JSONSerializer.extend({
 
 
-  normalize(modelClass, resourceHash) {
-    console.log('resourceHash')
-    console.log(resourceHash);
-    const data = {
-      id: resourceHash.id,
-      type : modelClass.modelName,
-      attributes: {
-        accuracy: resourceHash.accuracy,
-        ailment: resourceHash.meta.ailment.name,
-        category: resourceHash.meta.category.name,
-        critRate: resourceHash.meta.crit_rate,
-        damageClass: resourceHash.damage_class.name,
-        drain: resourceHash.meta.drain,
-        effectChance: resourceHash.effect_chance,
-        effectChanges : resourceHash.effect_changes,
-        effectEntry : resourceHash.effect_entries[0].effect,
-        flavorText : resourceHash.flavor_text_entries.filter( m => m.language.name === 'en' ).filter( m => ['red-blue','yellow','firered-leafgreen'].includes(m.version_group.name)).find(m => m.flavor_text).flavor_text.replace(/\n|\r/g, ' ').trim(),
-        flinchChance: resourceHash.meta.flinch_chance,
-        generation : resourceHash.generation.name,
-        healing: resourceHash.meta.healing,
-        maxHits: resourceHash.meta.max_hits,
-        maxTurns: resourceHash.meta.max_turns,
-        minHits: resourceHash.meta.min_hits,
-        minTurns: resourceHash.meta.min_turns,
-        moveType : resourceHash.type.name,
-        name : resourceHash.name,
-        power : resourceHash.power,
-        pp : resourceHash.pp,
-        priority : resourceHash.priority,
-        statChanges : resourceHash.stat_changes,
-        statChance: resourceHash.meta.stat_chance,
-        target : resourceHash.target.name,
-      },
+  normalizeSingleResponse(store, primaryModelClass, payload, id, requestType) {
+    let newPayload = {
+      accuracy : payload.accuracy,
+      ailment : payload.meta.ailment.name,
+      category : payload.meta.category.name,
+      critRate : payload.meta.crit_rate,
+      damageClass : payload.damage_class.name,
+      drain : payload.meta.drain,
+      effectChance : payload.effect_chance,
+      effectChanges : payload.effect_changes,
+      effectEntry : payload.effect_entries[0].effect,
+      flavorText : payload.flavor_text_entries.filter(m => m.language.name === 'en').filter(m => ['red-blue', 'yellow', 'firered-leafgreen'].includes(m.version_group.name)).find(m => m.flavor_text).flavor_text.replace(/\n|\r/g, ' ').trim(),
+      flinchChance : payload.meta.flinch_chance,
+      generation : payload.generation.name,
+      healing : payload.meta.healing,
+      id: payload.id,
+      maxHits : payload.meta.max_hits,
+      maxTurns : payload.meta.max_turns,
+      minHits : payload.meta.min_hits,
+      minTurns : payload.meta.min_turns,
+      moveType : payload.type.name,
+      name : payload.name,
+      power : payload.power,
+      pp : payload.pp,
+      priority : payload.priority,
+      statChanges : payload.stat_changes,
+      statChance : payload.meta.stat_chance,
+      target : payload.target.name
     };
-    console.log('data');
-    console.log(data);
-    return { data: data };
+
+    return this._super(store, primaryModelClass, newPayload, id, requestType);
+
   },
 
-  normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    if (requestType === 'findRecord') {
-      return this.normalize(primaryModelClass, payload);
-    } else {
-      return payload.results.reduce((acc, result) => {
-        let { data } = this.normalize(primaryModelClass, result);
-        acc.data.push(data);
-        return acc;
-      }, { data: [] })
-    }
-  },
+  // normalizeResponse(store, primaryModelClass, payload, id, requestType) {
+  //   if (requestType === 'findRecord') {
+  //     const data = this.normalize(primaryModelClass, payload);
+
+  //   // console.log('data');
+  //   // console.log(data);
+  //     store.push(data);
+  //     return data;
+  //   } else {
+  //     return payload.results.reduce((acc, result) => {
+  //       let { data } = this.normalize(primaryModelClass, result);
+  //       acc.data.push(data);
+  //       store.push(data);
+  //       return acc;
+  //     }, { data: [] })
+  //   }
+  // },
 
 });
