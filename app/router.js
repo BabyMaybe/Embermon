@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('detail');
     this.route('detail', {path: '/:move_id'});
   });
+  this.route('pokemon');
 });
 
 export default Router;
