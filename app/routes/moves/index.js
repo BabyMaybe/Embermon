@@ -1,4 +1,4 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 export default Route.extend({
   queryParams: {
@@ -10,8 +10,8 @@ export default Route.extend({
     }
   },
   model(params) {
-    console.log('modelParams');
+    console.log("modelParams");
     console.log(params);
-    return this.store.findAll('move', params);
-    }
+    return this.store.query("move", params);
+  }
 });
