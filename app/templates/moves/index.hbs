@@ -4,22 +4,20 @@
 
 <thead>
   <tr>
-    <th>Move</th>
     <th>ID</th>
+    <th>Move</th>
+    <th>Power</th>
+    <th>PP</th>
+    <th>Accuracy</th>
+    <th>Type</th>
+    <th>Damage Class</th>
   </tr>
 </thead>
 
 <tbody>
 
 {{#each model as |move|}}
-  <tr>
-    <td>
-      <div>{{move.name}} </div>
-    </td>
-    <td>
-      <div> {{move.id}}</div>
-    </td>
-  </tr>
+  {{move-row move=move boop=(action "test")}}
 {{/each}}
 </tbody>
 
