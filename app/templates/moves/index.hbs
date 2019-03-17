@@ -1,23 +1,22 @@
 <table>
 
-<thead>
-  <tr>
-    <th>ID</th>
-    <th>Move</th>
-    <th>Power</th>
-    <th>PP</th>
-    <th>Accuracy</th>
-    <th>Type</th>
-    <th>Damage Class</th>
-  </tr>
-</thead>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Move</th>
+      <th>Power</th>
+      <th>PP</th>
+      <th>Accuracy</th>
+      <th>Type</th>
+      <th>Damage Class</th>
+    </tr>
+  </thead>
 
-<tbody>
+  <tbody>
 
-{{#each model as |move|}}
-  {{move-row move=move boop=(action "test")}}
-{{/each}}
-</tbody>
-
+    {{#each model as |move|}}
+      {{move-row move=move boop=(action "test")}}
+    {{/each}}
+  </tbody>
 
 </table>
