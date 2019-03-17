@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: solid black 2px;
+}
+
+th,td {
+  padding: 10px;
+}
+
+th {
+  background: black;
+  color: white;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  text-transform: capitalize;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background: transparentize($color: peachpuff, $amount: .6);
+}
+
+tr:hover {
+  background: transparentize($color: peachpuff, $amount: .4);
+}
