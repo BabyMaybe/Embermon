@@ -1,6 +1,8 @@
 import ApplicationAdapter from "./application";
+import { inject as service } from "@ember/service";
 
 export default ApplicationAdapter.extend({
+  pagination: service(),
   // urlForFindRecord(id, modelName, snapshot) {
   //   const url = this._super(...arguments);
   //   console.log("url:", url);
@@ -31,7 +33,11 @@ export default ApplicationAdapter.extend({
   // },
   async query(store, type, query) {
     // console.log("finding all moves!");
+    console.log('query', query);
     let endpoints = await this._super(...arguments);
+    // console.log(endpoints);
+    const p = this.get('pagination');
+    p.update(endpoints, query);
     return await unpackRequests(endpoints);
   },
   async findAll(store, type, sinceToken, snapshotRecordArray) {
