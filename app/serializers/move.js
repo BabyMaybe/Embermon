@@ -19,8 +19,6 @@ export default DS.JSONSerializer.extend({
   },
 
   normalize(modelClass, resourceHash) {
-    // console.log("doing the normalize");
-    // console.log(resourceHash);
     resourceHash.accuracy = resourceHash.accuracy;
     resourceHash.ailment = resourceHash.pokemeta.ailment.name;
     resourceHash.category = resourceHash.pokemeta.category.name;
