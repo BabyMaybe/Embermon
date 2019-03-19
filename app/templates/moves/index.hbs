@@ -21,14 +21,9 @@
 
 </table>
 
-{{#link-to "moves" (query-params offset=pagination.previousOffset limit=pagination.previousLimit) }} Previous
-{{/link-to}}
-
-{{#link-to "moves" (query-params offset=pagination.nextOffset limit=pagination.nextLimit) }} Next {{/link-to}}
-
-
-<h3>Previous Offset: {{pagination.previousOffset}}</h3>
-<h3>Previous Limit: {{pagination.previousLimit}}</h3>
-<h3>Count: {{pagination.count}}</h3>
-<h3>Next Offset: {{pagination.nextOffset}}</h3>
-<h3>Next Limit: {{pagination.nextLimit}}</h3>
+<div class="pagination-footer">
+  {{#link-to "moves" (query-params offset=pagination.previousOffset limit=pagination.previousLimit) class=(if (equals pagination.currentOffset "0") 'red' '')}} Previous
+  {{/link-to}}
+  <div>{{off-by-one pagination.currentOffset}} - {{pagination.nextOffset}} of {{pagination.count}} Moves</div>
+  {{#link-to "moves" (query-params offset=pagination.nextOffset limit=pagination.nextLimit) }} Next {{/link-to}}
+</div>

@@ -8,7 +8,8 @@ table {
   border: solid black 2px;
 }
 
-th,td {
+th,
+td {
   padding: 10px;
 }
 
@@ -28,9 +29,35 @@ tr {
 }
 
 tr:nth-child(even) {
-  background: transparentize($color: peachpuff, $amount: .6);
+  background: transparentize($color: peachpuff, $amount: 0.6);
 }
 
 tr:hover {
-  background: transparentize($color: peachpuff, $amount: .4);
+  background: transparentize($color: peachpuff, $amount: 0.4);
+}
+
+.pagination-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border: solid black 2px;
+    width: 100px;
+    margin-top: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.red {
+  background-color: red;
 }
