@@ -1,7 +1,7 @@
-import Component from '@ember/component';
+import Component from "@ember/component";
 
 export default Component.extend({
-  tagName: '',
+  tagName: "",
 
   // click() {
   //   console.log('clicked move', this.move.name);
@@ -10,9 +10,8 @@ export default Component.extend({
   // },
 
   actions: {
-    doTheBoop() {
-      this.boop(this.move);
+    openDetails() {
+      this.openDetails(this.move);
     }
   }
-
 });

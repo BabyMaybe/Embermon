@@ -1,9 +1,7 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 export default Route.extend({
   model(params) {
-    console.log('params');
-    console.log(params);
-    return this.store.findRecord('move', params.move_id)
+    return this.store.findRecord("move", params.move_id);
   }
 });

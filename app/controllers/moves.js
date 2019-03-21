@@ -10,9 +10,6 @@ export default Controller.extend({
   actions: {
     openDetails(move) {
       this.transitionToRoute("moves.detail", move);
-      console.log('literally anything?');
-      this.transitionToRoute('moves.detail');
-      console.log('should have transitioned');
     }
   }
 });
