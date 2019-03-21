@@ -1,13 +1,15 @@
 import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 
 export default Controller.extend({
-  // init() {
-  //   this._super(...arguments);
-  // }
+  queryParams: ["offset", "limit"],
+  offset: null,
+  limit: null,
+  pagination: service(),
 
   actions: {
-    testParent() {
-      console.log('boop!');
+    openDetails(move) {
+      this.transitionToRoute("moves.detail", move);
       console.log('literally anything?');
       this.transitionToRoute('moves.detail');
       console.log('should have transitioned');
