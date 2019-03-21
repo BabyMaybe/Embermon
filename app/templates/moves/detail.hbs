@@ -1,28 +1,34 @@
-<h1>{{model.name}}</h1>
-<div>Accuracy: {{model.accuracy}}</div>
-<div>Ailment: {{model.ailment}}</div>
-<div>Category: {{model.category}}</div>
-<div>Crit Rate: {{model.critRate}}</div>
-<div>Damage Class: {{model.damageClass}}</div>
-<div>Drain: {{model.drain}}</div>
-<div>Effect Chance: {{model.effectChance}}</div>
-<div>Effect Changes: {{model.effectChanges}}</div>
-<div>Effect Entry: {{model.effectEntry}}</div>
-<div>Flavor Text: {{model.flavorText}}</div>
-<div>Flinch Chance: {{model.flinchChance}}</div>
-<div>Generation: {{model.generation}}</div>
-<div>Healing: {{model.healing}}</div>
-<div>Max Hits: {{model.maxHits}}</div>
-<div>Min Hits: {{model.minHits}}</div>
-<div>Min Turns: {{model.minTurns}}</div>
-<div>Min Hits: {{model.minHits}}</div>
-<div>Move Type: {{model.moveType}}</div>
-<div>Power: {{model.power}}</div>
-<div>PP: {{model.pp}}</div>
-<div>Priority: {{model.priority}}</div>
-<div>Stat Chance: {{model.statChance}}</div>
-<div>Stat Changes: {{model.statChange}}</div>
-<div>Target: {{model.target}}</div>
+<div class="modal-container">
+  <div class="modal">
 
+    <div class="modal-header">
+      <h1>{{model.name}}</h1>
+      {{#link-to "moves" class="close-btn"}}{{/link-to}}
+      <div class="flavor-text">{{model.flavorText}}</div>
+    </div>
 
-{{#link-to "moves" (query-params offset=10 limit=30) }} meow {{/link-to}}
+    <div>Accuracy: {{model.accuracy}}</div>
+    <div>Ailment: {{model.ailment}}</div>
+    <div>Category: {{model.category}}</div>
+    <div>Crit Rate: {{model.critRate}}</div>
+    <div>Damage Class: {{model.damageClass}}</div>
+    <div>Drain: {{model.drain}}</div>
+    <div>Effect Chance: {{model.effectChance}}</div>
+    <div>Effect Changes: {{model.effectChanges}}</div>
+    <div>Effect Entry: {{model.effectEntry}}</div>
+    <div>Flinch Chance: {{model.flinchChance}}</div>
+    <div>Generation: {{model.generation}}</div>
+    <div>Healing: {{model.healing}}</div>
+    <div>Max Hits: {{model.maxHits}}</div>
+    <div>Min Hits: {{model.minHits}}</div>
+    <div>Min Turns: {{model.minTurns}}</div>
+    <div>Min Hits: {{model.minHits}}</div>
+    <div>Move Type: {{model.moveType}}</div>
+    <div>Power: {{model.power}}</div>
+    <div>PP: {{model.pp}}</div>
+    <div>Priority: {{model.priority}}</div>
+    <div>Stat Chance: {{model.statChance}}</div>
+    <div>Stat Changes: {{model.statChange}}</div>
+    <div>Target: {{model.target}}</div>
+  </div>
+</div>
