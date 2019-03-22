@@ -7,28 +7,41 @@
       <div class="flavor-text">{{model.flavorText}}</div>
     </div>
 
-    <div>Accuracy: {{model.accuracy}}</div>
-    <div>Ailment: {{model.ailment}}</div>
-    <div>Category: {{model.category}}</div>
-    <div>Crit Rate: {{model.critRate}}</div>
-    <div>Damage Class: {{model.damageClass}}</div>
-    <div>Drain: {{model.drain}}</div>
-    <div>Effect Chance: {{model.effectChance}}</div>
-    <div>Effect Changes: {{model.effectChanges}}</div>
-    <div>Effect Entry: {{model.effectEntry}}</div>
-    <div>Flinch Chance: {{model.flinchChance}}</div>
-    <div>Generation: {{model.generation}}</div>
-    <div>Healing: {{model.healing}}</div>
-    <div>Max Hits: {{model.maxHits}}</div>
-    <div>Min Hits: {{model.minHits}}</div>
-    <div>Min Turns: {{model.minTurns}}</div>
-    <div>Min Hits: {{model.minHits}}</div>
-    <div>Move Type: {{model.moveType}}</div>
-    <div>Power: {{model.power}}</div>
-    <div>PP: {{model.pp}}</div>
-    <div>Priority: {{model.priority}}</div>
-    <div>Stat Chance: {{model.statChance}}</div>
-    <div>Stat Changes: {{model.statChange}}</div>
-    <div>Target: {{model.target}}</div>
+    <div class="modal-stats">
+      <div class="modal-row">
+        <div class="modal-stat-item modal-stat-item-type bubble-text"> <span>{{model.moveType}}</span> </div>
+        <div class="modal-stat-item modal-stat-item-class bubble-text"><span> {{model.damageClass}} </span> </div>
+        <div class="modal-stat-item modal-stat-item-category bubble-text"><span> {{model.category}} </span> </div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-stat-item modal-stat-item-acc"> Accuracy: {{model.accuracy}} </div>
+        <div class="modal-stat-item modal-stat-item-power"> Power: {{model.power}} </div>
+        <div class="modal-stat-item modal-stat-item-pp"> PP: {{model.pp}}</div>
+        <div class="modal-stat-item modal-stat-item-crit"> Crit Rate: {{model.critRate}} </div>
+      </div>
+
+    </div>
+    <p> <i> {{model.effectEntry}} </i> </p>
+
+    <div>Ailment: {{model.ailment}} </div>
+    <div>Drain: {{model.drain}} </div>
+    <div>Effect Chance: {{model.effectChance}} </div>
+    <div>Effect Changes: {{model.effectChanges}} </div>
+    <div>Flinch Chance: {{model.flinchChance}} </div>
+    <div>Generation: {{model.generation}} </div>
+    <div>Healing: {{model.healing}} </div>
+    <div>Priority: {{model.priority}} </div>
+    <div>Stat Chance: {{model.statChance}} </div>
+    <div>Stat Changes: {{model.statChange}} </div>
+    <div>Target: {{model.target}} </div>
+
+    <div class="modal-stats">
+      <div class="modal-stat-item">Min Hits: {{default-text model.minHits ' --- '}} </div>
+      <div class="modal-stat-item">Max Hits: {{default-text model.maxHits ' --- '}} </div>
+      <div class="modal-stat-item">Min Turns: {{default-text model.minTurns ' --- '}} </div>
+      <div class="modal-stat-item">Min Hits: {{default-text model.minHits ' --- '}} </div>
+    </div>
+
   </div>
 </div>
