@@ -1,1 +1,35 @@
+<h1>Pokemon!</h1>
+
+
+{{outlet}}
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each model.pokemon as |pokemon|}}
+        <tr>
+          <td>{{pokemon-id pokemon}}</td>
+          <td>{{pokemon.name}}</td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+
+  </table>
+</div>
+
+<div class="pagination-footer">
+  {{#link-to "moves" (query-params offset=pagination.previousOffset limit=pagination.previousLimit) class=(if (equals pagination.currentOffset "0") 'red' '')}} Previous
+  {{/link-to}}
+  <div>{{off-by-one pagination.currentOffset}} - {{pagination.nextOffset}} of {{pagination.count}} Moves</div>
+  {{#link-to "moves" (query-params offset=pagination.nextOffset limit=pagination.nextLimit) }} Next {{/link-to}}
+</div>
+
 {{outlet}}
